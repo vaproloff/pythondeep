@@ -3,10 +3,9 @@
 # Достаточно вернуть один допустимый вариант.
 
 camp_items = {
-    'палатка': 5.5,
-    'фонарик': 0.2,
+    'палатка': 3.5,
+    'фонарик': 0.5,
     'вода': 1.0,
-    'сухое топливо': 0.1,
     'спальный мешок': 1.2,
     'котелок': 0.8,
     'удочка': 1.1,
@@ -18,17 +17,16 @@ camp_items = {
     'стул раскладной': 2.7,
     'набор посуды': 1.4,
     'термос': 0.6,
-    'средство от насекомых': 0.2,
     'газовый балон': 0.8
 }
 
-capacity = int(input('Грузоподъемность рюкзака: '))
+bag_capacity = int(input('Грузоподъемность рюкзака: '))
 
 bag = []
 total_weight = 0
 for key, value in camp_items.items():
-    if (total_weight + value) <= capacity:
+    if (total_weight + value) <= bag_capacity:
         bag.append(key)
         total_weight += value
 
-print(f'Рюкзак: {bag}\nОбщий вес предметов: {round(total_weight, 1)}')
+print(f'Вес: {round(total_weight, 1)}. Вещи: {", ".join(bag)}')
