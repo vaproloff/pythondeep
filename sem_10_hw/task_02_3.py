@@ -36,7 +36,7 @@ class PuzzleGame:
             print('К сожалению, попыток не осталось. Вы не угадали')
             self.stats.update({puzzle['puzzle']: 0})
 
-    def show_stat(self) -> None:
+    def show_stat(self):
         print('Статистика отгадывания:')
         output = '\n'.join((f'Загадка: {puzzle_text} '
                             f'{f"Угадана с {trial_count} попытки." if trial_count > 0 else "Не угадана."}'
@@ -47,9 +47,9 @@ class PuzzleGame:
         while self.current_puzzle < len(self.puzzles):
             self.next_puzzle()
             self.current_puzzle += 1
-        self.show_stat()
 
 
 if __name__ == '__main__':
     puzzle_game = PuzzleGame(PUZZLES, 2)
     puzzle_game.play()
+    puzzle_game.show_stat()
